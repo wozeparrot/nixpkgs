@@ -413,7 +413,7 @@ rec {
           nativeBuildInputs = [ elixir ];
         } ''
         cp "$valuePath" "$out"
-        mix format "$out"
+        # mix format "$out"
       '';
     };
 
