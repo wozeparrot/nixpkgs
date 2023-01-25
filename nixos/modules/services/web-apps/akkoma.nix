@@ -121,6 +121,12 @@ with lib; let
                 [(format.lib.mkAtom ":local") addr]
               else format.lib.mkRaw addr;
           }
+          {
+            path = [":pleroma" "Pleroma.Upload" "filters"];
+
+            update = filters:
+              format.lib.mkRaw ("[" + (concatStringsSep ", " filters) + "]");
+          }
         ]
         cfg.config));
 
