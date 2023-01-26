@@ -133,6 +133,18 @@ with lib; let
             update = policies:
               format.lib.mkRaw ("[" + (concatStringsSep ", " policies) + "]");
           }
+          {
+            path = [":pleroma" ":mrf_simple" "reject"];
+
+            update = reject:
+              format.lib.mkRaw ("[" + (concatStringsSep ", " (map (tuple: "{" + (concatStringsSep ", " (map (value: "\"${value}\"") tuple)) + "}") reject)) + "]");
+          }
+          {
+            path = [":pleroma" ":mrf_object_age" "actions"];
+
+            update = actions:
+              format.lib.mkRaw ("[" + (concatStringsSep ", " actions) + "]");
+          }
         ]
         cfg.config));
 
