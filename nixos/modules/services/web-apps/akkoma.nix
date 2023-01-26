@@ -145,6 +145,16 @@ with lib; let
             update = actions:
               format.lib.mkRaw ("[" + (concatStringsSep ", " actions) + "]");
           }
+          {
+            path = [":pleroma" "Pleroma.Repo" "prepare"];
+
+            update = value: format.lib.mkRaw value;
+          }
+          {
+            path = [":pleroma" "Pleroma.Repo" "parameters"];
+
+            update = parameters: format.lib.mkRaw parameters;
+          }
         ]
         cfg.config));
 
