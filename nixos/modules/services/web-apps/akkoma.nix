@@ -127,6 +127,12 @@ with lib; let
             update = filters:
               format.lib.mkRaw ("[" + (concatStringsSep ", " filters) + "]");
           }
+          {
+            path = [":pleroma" ":mrf" "policies"];
+
+            update = policies:
+              format.lib.mkRaw ("[" + (concatStringsSep ", " policies) + "]");
+          }
         ]
         cfg.config));
 
